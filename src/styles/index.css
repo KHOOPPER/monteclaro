@@ -1,0 +1,32 @@
+@import "tailwindcss";
+/* Estilo global */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+img {
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+@media screen and (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.75rem;
+  }
+
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .rounded-xl {
+    border-radius: 0.75rem;
+  }
+}
+
