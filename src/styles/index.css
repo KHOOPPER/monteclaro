@@ -42,3 +42,7 @@ section {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+/* src/index.css */
+html, body, #root {
+  overflow-x: hidden;
+}

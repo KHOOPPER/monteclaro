@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen overflow-hidden text-white"
+      className="relative w-full h-screen overflow-hidden text-white max-w-full"
     >
       {/* Video de fondo */}
       <video
@@ -22,7 +22,7 @@ function Hero() {
 
       {/* Contenido central */}
       <motion.div
-        className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4"
+        className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 max-w-full overflow-hidden"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
