@@ -55,12 +55,14 @@ function Contacto({ sectionRef }) {
             ></textarea>
           </div>
 
-          <button
+          <motion.button
             type="submit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
             className="bg-orange-500 hover:bg-orange-600 transition-all duration-200 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-orange-500/40"
           >
             Enviar por WhatsApp
-          </button>
+          </motion.button>
         </form>
       </motion.div>
     </section>

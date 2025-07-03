@@ -1,38 +1,83 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+import { Link } from 'react-scroll';
 
-function Navbar({ scrollTo }) {
-  const links = [
-    { name: 'Inicio', section: 'hero' },
-    { name: 'Quiénes somos', section: 'quienesSomos' },
-    { name: 'Misión y Visión', section: 'misionVision' },
-    { name: 'Galería', section: 'galeria' },
-    { name: 'Proceso', section: 'proceso' },
-    { name: 'Contacto', section: 'contacto' },
-  ];
+const navItems = [
+  { label: 'Inicio', to: 'hero' },
+  { label: 'Quiénes somos', to: 'quienes' },
+  { label: 'Misión y Visión', to: 'mision' },
+  { label: 'Galería', to: 'galeria' },
+  { label: 'Proceso', to: 'proceso' },
+  { label: 'Contacto', to: 'contacto' }
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <motion.nav
-      className="fixed top-0 left-0 w-full bg-black bg-opacity-80 text-white z-50 shadow-md"
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+    <nav className="bg-black text-white fixed w-full z-50 shadow-lg">
+      <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
         <span className="text-xl font-bold">MonteClaro</span>
-        <ul className="flex flex-wrap gap-4 text-sm md:text-base">
-          {links.map((link) => (
-            <li
-              key={link.section}
-              className="cursor-pointer hover:text-orange-400 transition"
-              onClick={() => scrollTo(link.section)}
-            >
-              {link.name}
+
+        {/* Botón hamburguesa (móvil) */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+            className="focus:outline-none"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Menú escritorio */}
+        <ul className="hidden md:flex space-x-6">
+          {navItems.map(({ label, to }) => (
+            <li key={label}>
+              <Link
+                to={to}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-60}
+                activeClass="text-orange-400"
+                className="cursor-pointer hover:text-orange-400 transition-colors"
+              >
+                {label}
+              </Link>
             </li>
           ))}
         </ul>
       </div>
-    </motion.nav>
+
+      {/* Menú móvil animado */}
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            key="mobile-menu"
+            className="md:hidden flex flex-col bg-black text-white px-6 py-4 space-y-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+          >
+            {navItems.map(({ label, to }) => (
+              <li key={label}>
+                <Link
+                  to={to}
+                  smooth={true}
+                  duration={500}
+                  offset={-60}
+                  onClick={() => setOpen(false)}
+                  className="block w-full py-2 hover:text-orange-400 transition-colors"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }
-
-export default Navbar;

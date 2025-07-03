@@ -1,12 +1,8 @@
 import { motion } from 'framer-motion';
 
 function Hero() {
-  const scrollToSection = () => {
-    document.getElementById('quienesSomos')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative w-full h-screen overflow-hidden text-white">
+    <section id="hero" className="relative w-full h-screen overflow-hidden text-white">
       {/* Video de fondo */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -54,7 +50,7 @@ function Hero() {
           Tradición familiar, sabor auténtico desde las montañas de El Salvador.
         </motion.p>
 
-        {/* Botón animado que redirige a #contacto */}
+        {/* Botón animado que redirige a sección de contacto */}
         <motion.a
           href="#contacto"
           whileHover={{ scale: 1.08 }}
@@ -65,12 +61,12 @@ function Hero() {
         </motion.a>
       </motion.div>
 
-      {/* Flecha animada para scroll */}
-      <motion.div
+      {/* Flecha animada para bajar a "Quiénes somos" */}
+      <motion.a
+        href="#quienes"
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 cursor-pointer"
         animate={{ y: [0, -10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}
-        onClick={scrollToSection}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +77,7 @@ function Hero() {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
-      </motion.div>
+      </motion.a>
 
       {/* Luces decorativas arriba y abajo */}
       <div className="absolute top-0 w-full h-48 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10 pointer-events-none" />

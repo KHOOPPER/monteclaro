@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 function MisionVision() {
   return (
-    <section className="bg-[#0e0e0e] text-white py-16 px-6">
+    <section id="mision" className="bg-[#0e0e0e] text-white py-16 px-6">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           className="text-center md:text-left"
@@ -35,7 +35,7 @@ function MisionVision() {
 
       <motion.img
         src="/media/proceso-cafe.jpg"
-        alt="Proceso de café"
+        alt="Imagen ilustrativa del proceso de producción del café MonteClaro"
         className="mt-12 rounded-xl shadow-lg w-full max-w-5xl mx-auto"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

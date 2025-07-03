@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 function QuienesSomos({ sectionRef }) {
   return (
     <section
-      id="quienesSomos"
+      id="quienes" // <-- este ID debe coincidir con el valor "to" en Navbar
       ref={sectionRef}
       className="bg-[#1b1b1b] text-white py-16 px-6 overflow-hidden"
     >
@@ -32,7 +32,7 @@ function QuienesSomos({ sectionRef }) {
         >
           <img
             src="/media/cafe-finca.jpg"
-            alt="Finca de café"
+            alt="Vista panorámica de la finca MonteClaro con cafetales"
             className="w-full max-w-3xl mx-auto object-cover transition-transform duration-300"
           />
         </motion.div>
