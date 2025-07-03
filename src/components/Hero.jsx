@@ -2,7 +2,10 @@ import { motion } from 'framer-motion';
 
 function Hero() {
   return (
-    <section id="hero" className="relative w-full h-screen overflow-hidden text-white">
+    <section
+      id="hero"
+      className="relative w-full h-screen overflow-hidden text-white"
+    >
       {/* Video de fondo */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -10,9 +13,10 @@ function Hero() {
         autoPlay
         muted
         loop
+        playsInline
       />
 
-      {/* Capa de oscuridad con degradado + desenfoque */}
+      {/* Capa de oscuridad y desenfoque */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90 z-10" />
       <div className="absolute inset-0 backdrop-blur-[1px] z-10" />
 
@@ -50,7 +54,6 @@ function Hero() {
           Tradición familiar, sabor auténtico desde las montañas de El Salvador.
         </motion.p>
 
-        {/* Botón animado que redirige a sección de contacto */}
         <motion.a
           href="#contacto"
           whileHover={{ scale: 1.08 }}
@@ -61,7 +64,7 @@ function Hero() {
         </motion.a>
       </motion.div>
 
-      {/* Flecha animada para bajar a "Quiénes somos" */}
+      {/* Flecha animada para scroll */}
       <motion.a
         href="#quienes"
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 cursor-pointer"

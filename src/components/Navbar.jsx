@@ -16,11 +16,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-black text-white fixed w-full z-50 shadow-lg">
+    <nav className="fixed top-0 left-0 w-full bg-black text-white z-[100] shadow-lg">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
         <span className="text-xl font-bold">MonteClaro</span>
 
-        {/* Botón hamburguesa (móvil) */}
+        {/* Botón hamburguesa para móviles */}
         <div className="md:hidden">
           <button
             onClick={() => setOpen(!open)}
@@ -31,7 +31,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Menú escritorio */}
+        {/* Menú para escritorio */}
         <ul className="hidden md:flex space-x-6">
           {navItems.map(({ label, to }) => (
             <li key={label}>
@@ -40,7 +40,7 @@ export default function Navbar() {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-60}
+                offset={-70}
                 activeClass="text-orange-400"
                 className="cursor-pointer hover:text-orange-400 transition-colors"
               >
@@ -51,12 +51,12 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Menú móvil animado */}
+      {/* Menú móvil desplegable */}
       <AnimatePresence>
         {open && (
           <motion.ul
             key="mobile-menu"
-            className="md:hidden flex flex-col bg-black text-white px-6 py-4 space-y-4"
+            className="md:hidden flex flex-col bg-black text-white px-6 py-4 space-y-4 w-full"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -67,7 +67,7 @@ export default function Navbar() {
                   to={to}
                   smooth={true}
                   duration={500}
-                  offset={-60}
+                  offset={-70}
                   onClick={() => setOpen(false)}
                   className="block w-full py-2 hover:text-orange-400 transition-colors"
                 >

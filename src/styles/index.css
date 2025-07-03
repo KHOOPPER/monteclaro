@@ -1,32 +1,44 @@
 @import "tailwindcss";
-/* Estilo global */
+
+/* 🌐 Estilos globales */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #000000;
   color: #ffffff;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
+/* Encabezados */
 h1, h2, h3 {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* Imágenes */
 img {
   object-fit: cover;
   border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+
+/* Responsive: encabezados más pequeños */
 @media screen and (max-width: 480px) {
   h1, h2 {
     font-size: 1.75rem;
   }
-
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .rounded-xl {
-    border-radius: 0.75rem;
-  }
 }
 
+/* Secciones con padding lateral */
+section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Clase personalizada */
+.rounded-xl {
+  border-radius: 0.75rem;
+}
